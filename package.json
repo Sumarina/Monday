@@ -1,5 +1,5 @@
 {
-  "name": "learning-in-daily",
+  "name": "Monday",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -10,14 +10,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Sumarina/learning-in-daily.git"
+    "url": "git+https://github.com/Sumarina/Monday.git"
   },
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/Sumarina/learning-in-daily/issues"
+    "url": "https://github.com/Sumarina/Monday/issues"
   },
-  "homepage": "https://github.com/Sumarina/learning-in-daily#readme",
+  "homepage": "https://github.com/Sumarina/Monday#readme",
   "devDependencies": {
     "vuepress": "^1.4.1"
   }
