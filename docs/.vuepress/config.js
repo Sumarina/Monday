@@ -10,7 +10,7 @@ module.exports = {
       { text: 'Github', link: 'https://github.com/Sumarina/Monday' },
     ],
     sidebar: {
-      '/JavaScript/': ['', '0429'],
+      '/JavaScript/': ['', '0410', '0411', '0417', '0418', '0419', '0429'],
       '/css/': ['', '0409'],
       '/algorithm/': ['', 'climb'],
     }, // 侧边栏配置
