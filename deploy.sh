@@ -10,13 +10,13 @@ npm run docs:build
 cd docs/.vuepress/dist
 
 # 如果是发布到自定义域名
-# echo 'www.sumarin.cn' > CNAME
+echo 'www.sumarin.cn' > CNAME
 
 git init
 git add -A
 git commit -m 'deploy'
 
 # 如果发布到 https://<USERNAME>.github.io/<REPO>
-# git push -f git@github.com:Sumarina/Monday.git master:gh-pages
+git push -f git@github.com:Sumarina/Monday.git master:gh-pages
 
 cd -
