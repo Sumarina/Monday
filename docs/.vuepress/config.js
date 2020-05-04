@@ -4,15 +4,17 @@ module.exports = {
   themeConfig: {
     nav: [
       { text: '主页', link: '/' },
-      { text: 'JavaScript学习', link: '/JavaScript/' },
-      { text: 'css了解', link: '/css/' },
-      { text: '算法练习', link: '/algorithm/' },
+      { text: 'JavaScript学习', link: '/JavaScript/0410' },
+      { text: 'css了解', link: '/css/0409' },
+      { text: '算法练习', link: '/algorithm/climb' },
+      { text: '博客', link: '/blog/hello' },
       { text: 'Github', link: 'https://github.com/Sumarina/Monday' },
     ],
     sidebar: {
-      '/JavaScript/': ['', '0410', '0411', '0417', '0418', '0419', '0429', '0503'],
-      '/css/': ['', '0409'],
-      '/algorithm/': ['', 'climb'],
+      '/JavaScript/': ['0410', '0411', '0417', '0418', '0419', '0429', '0503'],
+      '/css/': ['0409'],
+      '/algorithm/': ['climb'],
+      '/blog/': ['hello'],
     }, // 侧边栏配置
     sidebarDepth: 2, // 侧边栏显示2级
   },
