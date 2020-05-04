@@ -7,5 +7,6 @@ actionText: 开始学习 →
 actionLink: /JavaScript/
 footer: MIT Licensed | Copyright © 2020-present sumarin
 ---
-
+<ClientOnly>
 <TrackCode/>
+</ClientOnly>
