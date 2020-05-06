@@ -7,14 +7,14 @@ module.exports = {
       { text: 'JavaScript学习', link: '/JavaScript/0410' },
       { text: 'css了解', link: '/css/0409' },
       { text: '算法练习', link: '/algorithm/climbStairs' },
-      { text: '博客', link: '/blog/hello' },
+      { text: '博客', link: '/blog/slider' },
       { text: 'Github', link: 'https://github.com/Sumarina/Monday' },
     ],
     sidebar: {
-      '/JavaScript/': ['0410', '0411', '0417', '0418', '0419', '0429', '0503'],
+      '/JavaScript/': ['0410', '0411', '0417', '0418', '0419', '0429', '0503', '0505'],
       '/css/': ['0409'],
       '/algorithm/': ['climbStairs'],
-      '/blog/': ['hello'],
+      '/blog/': ['slider'],
     }, // 侧边栏配置
     sidebarDepth: 2, // 侧边栏显示2级
   },
