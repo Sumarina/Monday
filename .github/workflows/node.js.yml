@@ -25,17 +25,18 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
         repo-token: ${{ secrets.GITHUB_TOKEN }}
-    - run: #!/usr/bin/env sh
-    - run: set -e
-    - run: npm ci
-    - run: npm run docs:build
-    - run: cd docs/.vuepress/dist
-    - run: echo 'www.sumarin.cn' > CNAME
-    - run: git init
-    - run: git add -A
-    - run: git config --global user.email "marinzoo@hotmail.com"
-    - run: git config --global user.name "sumarina"
-    - run: git commit -m 'deploy'
-    - run: git push -f origin master:gh-pages
-    - run: cd -
+    - run: |
+          #!/usr/bin/env sh
+          set -e
+          npm ci
+          npm run docs:build
+          cd docs/.vuepress/dist
+          echo 'www.sumarin.cn' > CNAME
+          git init
+          git add -A
+          git config --global user.email "marinzoo@hotmail.com"
+          git config --global user.name "sumarina"
+          git commit -m 'deploy'
+          git push -f origin master:gh-pages
+          cd -
       
