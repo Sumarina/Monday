@@ -32,15 +32,15 @@ jobs:
           npm run docs:build
           cd docs/.vuepress/dist
           echo 'www.sumarin.cn' > CNAME
-          git init
-          git add -A
-          echo 'git config'
-          git config --global user.email "marinzoo@hotmail.com"
-          git config --global user.name "sumarina"
-          echo 'git commit'
-          git commit -m 'deploy'
-          echo 'git remote add'
-          git remote add origin git@github.com:Sumarina/Monday.git
-          git remote set-url origin https://${GITHUB_ACTOR}:${github_token}@github.com/${GITHUB_REPOSITORY}
-          git push -f git@github.com:Sumarina/Monday.git master:gh-pages
-          cd -
+
+    - name: commit
+      run: |
+        git config --global user.email "marinzoo@hotmail.com"
+        git config --global user.name "sumarina"
+        git add .
+        git commit -m 'deploy'
+        
+    - name: Push changes
+      uses: ad-m/github-push-action@master
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
