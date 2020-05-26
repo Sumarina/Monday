@@ -26,11 +26,12 @@ jobs:
         node-version: ${{ matrix.node-version }}
     - run: npm ci
       # 生成静态文件
-    - run: npm run docs:build
-          cd docs/.vuepress/dist
-          echo 'www.sumarin.cn' > CNAME
-          git init
-          git add -A
-          git commit -m 'deploy'
-          git push -f git@github.com:Sumarina/Monday.git master:gh-pages
-          cd -
+    - run: npm i
+           npm run docs:build
+           cd docs/.vuepress/dist
+           echo 'www.sumarin.cn' > CNAME
+           git init
+           git add -A
+           git commit -m 'deploy'
+           git push -f git@github.com:Sumarina/Monday.git master:gh-pages
+           cd -
