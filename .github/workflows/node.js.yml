@@ -26,7 +26,7 @@ jobs:
         node-version: ${{ matrix.node-version }}
     - name: Hello world action
         env: 
-          super_secret: ${{ secrets.SuperSecret }}
+          SUPER_SECRET: ${{ secrets.SuperSecret }}
     - run: npm ci
     - run: npm run docs:build
     - run: cd docs/.vuepress/dist
