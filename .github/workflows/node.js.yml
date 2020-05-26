@@ -36,7 +36,7 @@ jobs:
 
     - name: commit
       run: |
-        pwd
+        cd docs/.vuepress/dist
         git config --global user.email "marinzoo@hotmail.com"
         git config --global user.name "sumarina"
         git add .
