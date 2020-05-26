@@ -32,9 +32,11 @@ jobs:
           npm run docs:build
           cd docs/.vuepress/dist
           echo 'www.sumarin.cn' > CNAME
+          pwd
 
     - name: commit
       run: |
+        pwd
         git config --global user.email "marinzoo@hotmail.com"
         git config --global user.name "sumarina"
         git add .
