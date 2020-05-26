@@ -25,9 +25,8 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
     - name: Decrypt large secret
-      run: ./.github/scripts/decrypt_secret.sh
       env:
-          LARGE_SECRET_PASSPHRASE: ${{ secrets.LARGE_SECRET_PASSPHRASE }}
+         NODE_AUTH_TOKEN: ${{secrets.monday}}
     - run: npm ci
     - run: npm run docs:build
     - run: cd docs/.vuepress/dist
