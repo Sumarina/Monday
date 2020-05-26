@@ -41,8 +41,6 @@ jobs:
           git commit -m 'deploy'
           echo 'git remote add'
           git remote add origin git@github.com:Sumarina/Monday.git
-          echo 'git set-url'
-          git remote set-url origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}
           git push -f git@github.com:Sumarina/Monday.git master:gh-pages
           cd -
       
