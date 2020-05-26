@@ -24,6 +24,7 @@ jobs:
       uses: actions/setup-node@v1
       with:
         node-version: ${{ matrix.node-version }}
+        super_secret: ${{ secrets.super_secret }}
         repo-token: ${{ secrets.GITHUB_TOKEN }}
     - run: |
           #!/usr/bin/env sh
