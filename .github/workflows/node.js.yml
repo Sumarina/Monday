@@ -24,9 +24,12 @@ jobs:
       uses: actions/setup-node@v1
       with:
         node-version: ${{ matrix.node-version }}
-    - name: Decrypt large secret
-      env:
-         NODE_AUTH_TOKEN: ${{secrets.monday}}
+   steps:
+  - name: Hello world action
+    with: 
+      super_secret: ${{ secrets.monday }}
+    env: 
+      super_secret: ${{ secrets.monday }}
     - run: npm ci
     - run: npm run docs:build
     - run: cd docs/.vuepress/dist
