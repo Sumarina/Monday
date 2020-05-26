@@ -36,3 +36,5 @@ jobs:
     - run: git commit -m 'deploy'
     - run: git push -f origin master:gh-pages
     - run: cd -
+      env:
+           CI: true
