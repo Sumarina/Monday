@@ -26,6 +26,9 @@ jobs:
         node-version: ${{ matrix.node-version }}
         super_secret: ${{ secrets.super_secret }}
         repo-token: ${{ secrets.GITHUB_TOKEN }}
+      env:
+        CI: true
+        super_secret: ${{ secrets.super_secret }}
     - run: |
           #!/usr/bin/env sh
           set -e
