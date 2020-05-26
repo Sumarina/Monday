@@ -39,7 +39,9 @@ jobs:
         cd docs/.vuepress/dist
         git config --global user.email "marinzoo@hotmail.com"
         git config --global user.name "sumarina"
-        git add .
+        echo 'git add'
+        git add -A
+        echo 'git commit'
         git commit -m 'deploy'
         
     - name: Push changes
