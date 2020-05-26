@@ -24,6 +24,11 @@ jobs:
       uses: actions/setup-node@v1
       with:
         node-version: ${{ matrix.node-version }}
+    - name: Hello world action
+        with: # Set the secret as an input
+        super_secret: ${{ secrets.SuperSecret }}
+        env: # Or as an environment variable
+        super_secret: ${{ secrets.SuperSecret }}
     - run: npm ci
     - run: npm run docs:build
     - run: cd docs/.vuepress/dist
@@ -33,5 +38,5 @@ jobs:
     - run: git config --global user.email "marinzoo@hotmail.com"
     - run: git config --global user.name "sumarina"
     - run: git commit -m 'deploy'
-    - run: git push origin master:gh-pages
+    - run: git push -f git@github.com:Sumarina/Monday.git master:gh-pages
     - run: cd -
