@@ -5,12 +5,13 @@ name: Node.js CI
 
 on:
   push:
-    branches: [master]
+    branches: [ master ]
   pull_request:
-    branches: [master]
+    branches: [ master ]
 
 jobs:
   build:
+
     runs-on: ubuntu-latest
 
     strategy:
@@ -18,13 +19,12 @@ jobs:
         node-version: [12.x, 14.x]
 
     steps:
-      - uses: actions/checkout@v2
-      - name: Use Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@v1
-        with:
-          node-version: ${{ matrix.node-version }}
-          repo-token: ${{ secrets.GITHUB_TOKEN }}
-      - run: |
+    - uses: actions/checkout@v2
+    - name: Use Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v1
+      with:
+        node-version: ${{ matrix.node-version }}
+    - run: |
           #!/usr/bin/env sh
           set -e
           npm ci
@@ -36,6 +36,7 @@ jobs:
           git config --global user.email "marinzoo@hotmail.com"
           git config --global user.name "sumarina"
           git commit -m 'deploy'
-          git remote set-url origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@git@github.com:Sumarina/Monday.git
+          git remote set-url origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}
           git push -f git@github.com:Sumarina/Monday.git master:gh-pages
           cd -
+      
