@@ -38,6 +38,6 @@ jobs:
           git config --global user.name "sumarina"
           git commit -m 'deploy'
           git remote set-url origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}
-          git push -f git@github.com:Sumarina/Monday.git master:gh-pages
+          git push -f origin master:gh-pages
           cd -
       
