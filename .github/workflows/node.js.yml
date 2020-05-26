@@ -35,4 +35,3 @@ jobs:
     - run: git config --global user.name "sumarina"
     - run: git commit -m 'deploy'
     - run: git push -f origin master:gh-pages
-    - run: cd -
