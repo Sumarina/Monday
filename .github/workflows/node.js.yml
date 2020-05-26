@@ -42,7 +42,7 @@ jobs:
           echo 'git remote add'
           git remote add origin git@github.com:Sumarina/Monday.git
           echo 'git set-url'
-          git remote set-url origin https://${GITHUB_ACTOR}:${PUSH_TOKEN}@github.com/${GITHUB_REPOSITORY}
+          git remote set-url origin https://${GITHUB_ACTOR}:${repo-token}@github.com/${GITHUB_REPOSITORY}
           git push -f git@github.com:Sumarina/Monday.git master:gh-pages
           cd -
       
