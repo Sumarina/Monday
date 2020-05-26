@@ -24,9 +24,10 @@ jobs:
       uses: actions/setup-node@v1
       with:
         node-version: ${{ matrix.node-version }}
-    - name: Hello world action
-        env: 
-          SUPER_SECRET: ${{ secrets.SuperSecret }}
+    - name: Decrypt large secret
+      run: ./.github/scripts/decrypt_secret.sh
+      env:
+          LARGE_SECRET_PASSPHRASE: ${{ secrets.LARGE_SECRET_PASSPHRASE }}
     - run: npm ci
     - run: npm run docs:build
     - run: cd docs/.vuepress/dist
