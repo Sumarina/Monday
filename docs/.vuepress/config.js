@@ -14,7 +14,7 @@ module.exports = {
       '/JavaScript/': ['0410', '0411', '0417', '0418', '0419', '0429', '0503', '0505'],
       '/css/': ['0409'],
       '/algorithm/': ['climbStairs'],
-      '/blog/': ['slider'],
+      '/blog/': ['slider','0519'],
     }, // 侧边栏配置
     sidebarDepth: 2, // 侧边栏显示2级
   },
