@@ -25,6 +25,10 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
         repo-token: ${{ secrets.GITHUB_TOKEN }}
+      env:
+           CI: true
+    - run: #!/usr/bin/env sh
+    - run: set -e
     - run: npm ci
     - run: npm run docs:build
     - run: cd docs/.vuepress/dist
@@ -36,5 +40,4 @@ jobs:
     - run: git commit -m 'deploy'
     - run: git push -f origin master:gh-pages
     - run: cd -
-      env:
-           CI: true
+      
