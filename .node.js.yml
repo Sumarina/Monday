@@ -1,0 +1,49 @@
+# This workflow will do a clean install of node dependencies, build the source code and run tests across different versions of node	
+# For more information see: https://help.github.com/actions/language-and-framework-guides/using-nodejs-with-github-actions	
+
+name: Node.js CI	
+
+on:	
+  push:	
+    branches: [ master ]	
+  pull_request:	
+    branches: [ master ]	
+
+jobs:	
+  build:	
+
+    runs-on: ubuntu-latest	
+
+    strategy:	
+      matrix:	
+        node-version: [12.x, 14.x]	
+
+    steps:	
+    - uses: actions/checkout@v2	
+    - name: Use Node.js ${{ matrix.node-version }}	
+      uses: actions/setup-node@v1	
+      with:	
+        node-version: ${{ matrix.node-version }}	
+        github_token: ${{ secrets.GITHUB_TOKEN }}	
+    - run: |	
+          #!/usr/bin/env sh	
+          set -e	
+          npm ci	
+          npm run docs:build	
+          cd docs/.vuepress/dist	
+          echo 'www.sumarin.cn' > CNAME	
+    - name: commit	
+      run: |	
+        cd docs/.vuepress/dist	
+        git config --global user.email "marinzoo@hotmail.com"	
+        git config --global user.name "sumarina"	
+        git init	
+        git add -A	
+        git commit -m 'deploy'	
+        git push -f git@github.com:Sumarina/Monday.git master:gh-pages	
+        cd -	
+          	
+    - name: Push changes	
+      uses: ad-m/github-push-action@master	
+      with:	
+        github_token: ${{ secrets.GITHUB_TOKEN }}
