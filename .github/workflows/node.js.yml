@@ -32,7 +32,6 @@ jobs:
           npm run docs:build
           cd docs/.vuepress/dist
           echo 'www.sumarin.cn' > CNAME
-          pwd
 
     - name: commit
       run: |
