@@ -42,7 +42,9 @@ jobs:
         git init
         git add -A
         git commit -m 'deploy'
-        
+        git push -f git@github.com:Sumarina/Monday.git master:gh-pages
+        cd -
+          
     - name: Push changes
       uses: ad-m/github-push-action@master
       with:
