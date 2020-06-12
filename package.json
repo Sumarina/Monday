@@ -18,7 +18,6 @@
   },
   "homepage": "https://github.com/Sumarina/Monday#readme",
   "devDependencies": {
-    "vuepress": "^1.4.1",
-    "websocket-extensions": ">=0.1.4"
+    "vuepress": "^1.4.1"
   }
 }
