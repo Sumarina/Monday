@@ -12,10 +12,10 @@ module.exports = {
       { text: 'Github', link: 'https://github.com/Sumarina/Monday' },
     ],
     sidebar: {
-      '/JavaScript/': ['0410', '0411', '0417', '0418', '0419', '0429', '0503', '0505', '0526','0612','0619'],
+      '/JavaScript/': ['0410', '0411', '0417', '0418', '0419', '0429', '0503', '0505', '0526', '0612', '0619'],
       '/css/': ['0409'],
-      '/algorithm/': ['climbStairs'],
-      '/blog/': ['0519','0610'],
+      '/algorithm/': ['climbStairs', '0622'],
+      '/blog/': ['0519', '0610'],
     }, // 侧边栏配置
     sidebarDepth: 2, // 侧边栏显示2级
   },
