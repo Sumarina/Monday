@@ -1,3 +1,61 @@
+class MaxHeap {
+  // constructor(capacity) {
+  //   this.data = new Array(capacity + 1);
+  //   this.count = 0;
+  // }
+  constructor(arr, length) {
+    this.data = new Array(length + 1);
+    for (let i = 0; i < arr.length; i++) {
+      this.data[i + 1] = arr[i];
+    }
+    this.count = length;
+    for (let k = Math.floor(this.count / 2); k >= 1; k--) {
+      this.shiftDown(k);
+    }
+  }
+  getSize() {
+    return this.count;
+  }
+  isEmpty() {
+    return this.count === 0;
+  }
+  insert(value) {
+    this.data[this.count + 1] = value;
+    this.count++;
+    this.shiftUp(this.count);
+  }
+  extractMax() {
+    if (this.count <= 0) return;
+    const ret = this.data[1];
+    this.swap(this.data, 1, this.count);
+    this.count--;
+    this.shiftDown(1);
+    return ret;
+  }
+  shiftUp(k) {
+    while (k >= 1 && this.data[k] > this.data[Math.floor(k / 2)]) {
+      this.swap(this.data, k, Math.floor(k / 2));
+      k = Math.floor(k / 2);
+    }
+  }
+  shiftDown(k) {
+    //判断有左孩子
+    while (2 * k <= this.count) {
+      let j = 2 * k;
+      if (j + 1 <= this.count && this.data[j] < this.data[j + 1]) {
+        //判断是否有右孩子并且值大
+        j += 1;
+      }
+      if (this.data[k] >= this.data[j]) break;
+      this.swap(this.data, k, j);
+      k = j;
+    }
+  }
+  swap(arr, index1, index2) {
+    [arr[index1], arr[index2]] = [arr[index2], arr[index1]];
+  }
+}
+
 function mergeSort(arr) {
   const length = arr.length;
   const result = _mergeSort(arr, 0, length - 1);
@@ -177,6 +235,24 @@ function partition3Ways(arr, l, r) {
   return { lt: lt, gt: gt };
 }
 
+function heapSort(arr) {
+  // const maxHeap = new MaxHeap(arr.length + 1);
+  // for (let i = 0; i < arr.length; i++) {
+  //   maxHeap.insert(arr[i]);
+  // }
+  // for (let i = arr.length; i > 0; i--) {
+  //   const v = maxHeap.extractMax();
+  //   arr[i - 1] = v;
+  // }
+  // return arr;
+  const maxHeap = new MaxHeap(arr, arr.length);
+
+  for (let i = arr.length; i > 0; i--) {
+    const v = maxHeap.extractMax();
+    arr[i - 1] = v;
+  }
+  return arr;
+}
 function generateArray(num = 10000, min = 0, max = 10000) {
   const result = [];
   for (let i = min; i < num; i++) {
@@ -191,7 +267,7 @@ function swap(arr, index1, index2) {
 
 function testDemo() {
   const arr = generateArray(1000000, 0, 10);
-  const [arr1, arr2, arr3, arr4, arr5, arr6, arr7] = [[...arr], [...arr], [...arr], [...arr], [...arr], [...arr], [...arr]];
+  const [arr1, arr2, arr3, arr4, arr5, arr6, arr7, arr8] = [[...arr], [...arr], [...arr], [...arr], [...arr], [...arr], [...arr], [...arr]];
   // const start1 = new Date().getTime();
   // insertionSort(arr1);
   // console.log('插入排序:', new Date().getTime() - start1);
@@ -226,6 +302,10 @@ function testDemo() {
   quickSort3(arr7);
   console.log('快速排序-三路快排', new Date().getTime() - start7);
   // console.log('结果', arr7);
+
+  const start8 = new Date().getTime();
+  heapSort(arr8);
+  console.log('堆排序', new Date().getTime() - start8);
 }
 
 testDemo();
