@@ -120,7 +120,9 @@ function _quickSort2(arr, l, r) {
 }
 
 function partition2(arr, l, r) {
-  const v = arr[Math.floor((l + r) / 2)];
+  const vi = Math.floor((l + r) / 2);
+  swap(l, vi);
+  const v = arr[l];
   //arr[l+1,i)<=v; arr(j,r]>=v
   let i = l,
     j = r;
@@ -132,9 +134,7 @@ function partition2(arr, l, r) {
       j--;
     }
     if (i > j) break;
-    let temp = arr[i];
-    arr[i] = arr[j];
-    arr[j] = temp;
+    swap(arr, i, j);
     i++;
     j--;
   }
@@ -147,32 +147,34 @@ function quickSort3(arr) {
 }
 function _quickSort3(arr, l, r) {
   if (l >= r) return;
-  const v = arr[Math.floor((l + r) / 2)];
+  const obj = partition3Ways(arr, l, r);
+  _quickSort3(arr, l, obj.lt);
+  _quickSort3(arr, obj.gt, r);
+}
+
+function partition3Ways(arr, l, r) {
+  const vi = Math.floor((l + r) / 2);
+  swap(l, vi);
+  const v = arr[l];
   //arr[l+1,lt]<v; arr[gt,r]>v;[lt+1,i)===v
   let lt = l,
     gt = r + 1,
     i = l + 1;
   while (i < gt) {
     if (arr[i] < v) {
-      let temp = arr[lt];
-      arr[lt] = arr[i];
-      arr[i] = temp;
+      swap(arr, lt + 1, i);
       lt++;
       i++;
     } else if (arr[i] > v) {
-      let temp = arr[gt - 1];
-      arr[gt - 1] = arr[i];
-      arr[i] = temp;
+      swap(arr, gt - 1, i);
       gt--;
     } else {
       i++;
     }
   }
-  let temp = arr[l];
-  arr[l] = arr[lt];
-  arr[lt] = temp;
-  _quickSort3(arr, l, lt - 1);
-  _quickSort3(arr, gt, r);
+  swap(arr, l, lt);
+  lt--;
+  return { lt: lt, gt: gt };
 }
 
 function generateArray(num = 10000, min = 0, max = 10000) {
@@ -183,37 +185,47 @@ function generateArray(num = 10000, min = 0, max = 10000) {
   return result;
 }
 
+function swap(arr, index1, index2) {
+  [arr[index1], arr[index2]] = [arr[index2], arr[index1]];
+}
+
 function testDemo() {
-  const arr = generateArray(10, 0, 10);
-  console.log('arr', arr);
-  //   console.log('arr', arr);
-  //   const start1 = new Date().getTime();
-  //   insertionSort(arr);
-  //   console.log('insertionSort...', new Date().getTime() - start1);
+  const arr = generateArray(1000000, 0, 10);
+  const [arr1, arr2, arr3, arr4, arr5, arr6, arr7] = [[...arr], [...arr], [...arr], [...arr], [...arr], [...arr], [...arr]];
+  // const start1 = new Date().getTime();
+  // insertionSort(arr1);
+  // console.log('插入排序:', new Date().getTime() - start1);
+  // console.log('结果', arr1);
 
-  //   const start2 = new Date().getTime();
-  //   selectionSort(arr);
-  //   console.log('selectionSort...', new Date().getTime() - start2);
+  // const start2 = new Date().getTime();
+  // selectionSort(arr2);
+  // console.log('选择排序:', new Date().getTime() - start2);
+  // console.log('结果', arr2);
 
-  //   const start3 = new Date().getTime();
-  //   console.log('sort result', mergeSort(arr));
-  //   console.log('mergeSort...', new Date().getTime() - start3);
+  const start3 = new Date().getTime();
+  mergeSort(arr3);
+  console.log('归并排序-自顶而下:', new Date().getTime() - start3);
+  // console.log('结果', arr3);
 
-  //   const start4 = new Date().getTime();
-  //   console.log('sort result', mergeSortBU(arr));
-  //   console.log('mergeSort...', new Date().getTime() - start4);
+  const start4 = new Date().getTime();
+  mergeSortBU(arr4);
+  console.log('归并排序-自底向上:', new Date().getTime() - start4);
+  // console.log('结果', arr4);
 
-  //   const start5 = new Date().getTime();
-  //   console.log('sort result', quickSort(arr));
-  //   console.log('mergeSort...', new Date().getTime() - start5);
+  // const start5 = new Date().getTime();
+  // quickSort(arr5);
+  // console.log('普通快速排序:', new Date().getTime() - start5);
+  // console.log('结果', arr5);
 
-  //   const start6 = new Date().getTime();
-  //   console.log('sort result', quickSort2(arr));
-  //   console.log('mergeSort...', new Date().getTime() - start6);
+  // const start6 = new Date().getTime();
+  // quickSort2(arr6);
+  // console.log('快速排序-双路并排:', new Date().getTime() - start6);
+  // console.log('结果', arr6);
 
   const start7 = new Date().getTime();
-  console.log('sort result', quickSort3(arr));
-  console.log('mergeSort...', new Date().getTime() - start7);
+  quickSort3(arr7);
+  console.log('快速排序-三路快排', new Date().getTime() - start7);
+  // console.log('结果', arr7);
 }
 
 testDemo();
