@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>双向绑定demo</title>
+</head>
+
+<body>
+    <div>
+        <input type="text" id="name">
+        <label id="showResult"></label>
+    </div>
+
+    <script>
+        const input = document.getElementById('name');
+        const showResult = document.getElementById('showResult');
+        let data = { value: '' };
+        Object.defineProperty(data, 'value', {
+            set: function (val) {
+                showResult.innerHTML = val;
+            },
+            get: function () {
+                return input.value;
+            }
+        })
+        input.onkeyup = function (e) {
+            data.value = e.target.value;
+        }
+    </script>
+</body>
+
+</html>

@@ -12,7 +12,7 @@ Explanation: There are three ways to climb to the top.
 2. 1 step + 2 steps
 3. 2 steps + 1 step
 
-暴力法 无法提交 n 为 44 执行会超过时间限制。 复杂度为 O(2 的 n 次方)
+暴力法:复杂度为 O(2 的 n 次方)。空间复杂度为 O(n)。[在递归的过程中，节点一直在重复计算]
 
 ```js
 var climbStairs = function(n) {
@@ -30,7 +30,7 @@ function climb_stairs(i, n) {
 }
 ```
 
-记忆化递归 减少冗余
+记忆化递归:减少重复的节点计算，每个节点仅且计算一次，所以时间复杂度为 O(n)，空间复杂度为 O(n)。
 
 ```js
 var climbStairs = function(n) {
@@ -56,6 +56,7 @@ function climb_stairs(i, n, memoriesArr) {
 动态规划
 到达第 n 阶的方法有两种方式：第一种是第 n-1 阶向上爬一步。第二种方式是第 n-2 阶向上爬两步。
 令 dp 表示能到达第 n 阶的方法总数：dp(n)=dp(n-1)+dp(n-2);
+时间复杂度为 O(n)，空间复杂度为 O(n)。
 
 ```js
 var climbStairs = function(n) {
@@ -72,7 +73,8 @@ var climbStairs = function(n) {
 };
 ```
 
-使用斐波那契数
+使用斐波那契数,不使用数组额外开辟内存空间，使用中间变量。
+时间复杂度为 O(n)，空间复杂度为 O(1)。
 
 ```js
 var climbStairs = function(n) {
