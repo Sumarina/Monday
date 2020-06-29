@@ -28,6 +28,32 @@
         input.onkeyup = function (e) {
             data.value = e.target.value;
         }
+        showResult.onclick = function (e) {
+            var val = showResult;
+            window.getSelection().selectAllChildren(val);
+            document.execCommand('copy');
+
+            // var range = document.createRange();
+            // var end = input.childNodes.length;
+            // range.setStart(input, 0);
+            // range.setEnd(input, end);
+
+            // var selection = window.getSelection();
+            // selection.removeAllRanges();
+            // selection.addRange(range);
+            // document.execCommand("copy", false, null);
+            // selection.removeRange(range);
+
+            // const selection = window.getSelection();
+            // const range = document.createRange();
+
+            // range.selectNodeContents(input);
+            // selection.removeAllRanges();
+            // selection.addRange(range);
+            // selectedText = selection.toString();
+            // console.log(selectedText);
+            // document.execCommand('copy');
+        }
     </script>
 </body>
 
