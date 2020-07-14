@@ -12,7 +12,7 @@ module.exports = {
       { text: 'Github', link: 'https://github.com/Sumarina/Monday' },
     ],
     sidebar: {
-      '/JavaScript/': ['0410', '0411', '0417', '0418', '0419', '0429', '0503', '0505', '0526', '0612', '0619', '0628'],
+      '/JavaScript/': ['0410', '0411', '0417', '0418', '0419', '0429', '0503', '0505', '0526', '0612', '0619'],
       '/css/': ['0409'],
       '/algorithm/': ['climbStairs', '0622', '0624', '0629', 'moveZeroes', 'mostWater', 'preorderTraversal', 'preorder'],
       '/blog/': ['0519', '0610'],
