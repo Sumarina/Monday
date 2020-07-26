@@ -33,12 +33,14 @@ class MaxHeap {
     return ret;
   }
   shiftUp(k) {
+    //插入节点 调整节点的位置 保证某个节点的值不大于其父节点的值
     while (k >= 1 && this.data[k] > this.data[Math.floor(k / 2)]) {
       this.swap(this.data, k, Math.floor(k / 2));
       k = Math.floor(k / 2);
     }
   }
   shiftDown(k) {
+    //出队
     //判断有左孩子
     while (2 * k <= this.count) {
       let j = 2 * k;
@@ -48,6 +50,41 @@ class MaxHeap {
       }
       if (this.data[k] >= this.data[j]) break;
       this.swap(this.data, k, j);
+      k = j;
+    }
+  }
+  swap(arr, index1, index2) {
+    [arr[index1], arr[index2]] = [arr[index2], arr[index1]];
+  }
+}
+
+class MinHeap {
+  constructor(arr, capacity) {
+    this.data = [];
+    for (let i = 0; i < capacity; i++) {
+      this.data[i + 1] = arr[i];
+    }
+    this.count = capacity;
+    for (let k = Math.floor(this.count / 2); k >= 1; k--) {
+      this.shiftDown(k);
+    }
+  }
+  extractMin() {
+    // if (this.count <= 0) return;
+    // const ret = this.data[1];
+    // this.swap(this.data, 1, this.count);
+    // this.count--;
+    // this.shiftDown(1);
+    return this.data;
+  }
+  shiftDown(k) {
+    while (k * 2 <= this.count) {
+      let j = k * 2;
+      if (j <= this.count && this.data[j + 1] && this.data[j] > this.data[j + 1]) {
+        j = j + 1;
+      }
+      if (this.data[k] <= this.data[j]) break;
+      swap(this.data, k, j);
       k = j;
     }
   }
@@ -245,13 +282,22 @@ function heapSort(arr) {
   //   arr[i - 1] = v;
   // }
   // return arr;
-  const maxHeap = new MaxHeap(arr, arr.length);
 
-  for (let i = arr.length; i > 0; i--) {
-    const v = maxHeap.extractMax();
-    arr[i - 1] = v;
-  }
-  return arr;
+  // const maxHeap = new MaxHeap(arr, arr.length);
+
+  // for (let i = arr.length; i > 0; i--) {
+  //   const v = maxHeap.extractMax();
+  //   arr[i - 1] = v;
+  // }
+
+  const maxHeap = new MinHeap(arr, arr.length);
+
+  // for (let i = 0; i > arr.length; i++) {
+  //   const v = maxHeap.extractMin();
+  //   arr[i] = v;
+  // }
+  console.log(maxHeap.extractMin());
+  // return arr;
 }
 function generateArray(num = 10000, min = 0, max = 10000) {
   const result = [];
@@ -266,7 +312,8 @@ function swap(arr, index1, index2) {
 }
 
 function testDemo() {
-  const arr = generateArray(1000000, 0, 10);
+  const arr = generateArray(10, 0, 10);
+  console.log('srr', arr);
   const [arr1, arr2, arr3, arr4, arr5, arr6, arr7, arr8] = [[...arr], [...arr], [...arr], [...arr], [...arr], [...arr], [...arr], [...arr]];
   // const start1 = new Date().getTime();
   // insertionSort(arr1);
