@@ -35,3 +35,14 @@ Person.prototype = function() {
 // 所以在new Person的时候就相当于把它的作用域指向了p
 // 所以Person中的this是指向p的
 const p = new Person();
+
+var a = 'window';
+function bar() {
+  console.log(this.a);
+}
+function foo() {
+  var a = 'foo';
+  bar.call(a);
+}
+
+foo();
