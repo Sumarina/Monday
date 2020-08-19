@@ -2,9 +2,9 @@ function foo() {
   console.log(this);
 }
 
-var name = 'global';
+var name = 'globalName';
 var bar = {
-  name: 'bar',
+  name: 'barName',
   getName: function() {
     console.log('this in getName:', this, this.name);
   },
@@ -36,13 +36,27 @@ Person.prototype = function() {
 // 所以Person中的this是指向p的
 const p = new Person();
 
-var a = 'window';
+var a = { a: 'window' };
+function foo() {
+  var a = { a: 'foo' };
+  console.log(this);
+  bar();
+}
 function bar() {
   console.log(this.a);
 }
-function foo() {
-  var a = 'foo';
-  bar.call(a);
+foo();
+
+var name = 'marin02';
+function getName() {
+  console.log(this.name);
 }
 
-foo();
+var obj = {
+  name: 'marin01',
+  getName: getName,
+};
+obj.getName();
+var fn = obj.getName;
+getName();
+fn();
