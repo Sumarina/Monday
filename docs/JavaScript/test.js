@@ -121,4 +121,93 @@
 // }
 // console.log(formatDate(new Date(), 'yyyy-M-d HH:mm:ss 星期w'));
 
-function getUrlParams() {}
+// function isAvailableEmail(sEmail) {
+//   const regex = /^[\w\d\.\-]+@([\w\d\-]+\.)+[\w\d]+$/g;
+//   return regex.test(sEmail);
+// }
+
+// console.log(isAvailableEmail('marinzoo@hotmail.com'));
+
+function decimalToBinary(num) {
+  const mod = [];
+  while (num) {
+    const m = num % 2;
+    mod.unshift(m);
+    num = (num - m) / 2;
+  }
+  return mod.join('');
+}
+
+function decimalToOctal(num) {
+  const mod = [];
+  while (num) {
+    const m = num % 8;
+    mod.unshift(m);
+    num = (num - m) / 8;
+  }
+  return mod.join('');
+}
+function decimalToHexadecimal(num) {
+  const map = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 'A', 'B', 'C', 'D', 'E', 'F'];
+  const mod = [];
+  while (num) {
+    const m = num % 16;
+    mod.unshift(map[m]);
+    num = (num - m) / 16;
+  }
+  return mod.join('');
+}
+console.log(decimalToOctal(255));
+
+function binaryToOctal(num) {
+  num = String(num);
+  let sum = 0;
+  for (let i = 0; i < num.length; i++) {
+    sum += Math.pow(2, i);
+  }
+  return decimalToOctal(sum);
+}
+console.log(binaryToOctal(11111111));
+
+function binaryToHexadecimal(num) {
+  num = String(num);
+  let sum = 0;
+  for (let i = 0; i < num.length; i++) {
+    sum += Math.pow(2, i);
+  }
+  return decimalToHexadecimal(sum);
+}
+console.log(binaryToHexadecimal(11111111));
+
+// function rgb2hex(sRGB) {
+//   const reg = /^(rgb|RGB)\(\s*(\d{1,3})\s*\,\s*(\d{1,3})\s*\,\s*(\d{1,3})\s*\)$/;
+//   if (!reg.test(sRGB)) return sRGB;
+//   return sRGB.replace(reg, function() {
+//     return `#${hex(RegExp.$2)}${hex(RegExp.$3)}${hex(RegExp.$4)}`;
+//   });
+
+//   function hex(num) {
+//     return num < 16 ? `0${Number(num).toString(16)}` : Number(num).toString(16);
+//   }
+// }
+// console.log(rgb2hex('rgb(255,230,23)'));
+
+// function cssStyle2DomStyle(sName) {
+//   return sName
+//     .replace(/(?!^)(?:-)+(.)?/g, function(match, $1) {
+//       return $1 ? $1.toUpperCase() : '';
+//     })
+//     .replace(/^-/, '');
+// }
+// console.log(cssStyle2DomStyle('font-size'));
+// console.log(cssStyle2DomStyle('font-size-'));
+// console.log(cssStyle2DomStyle('-webkit-border-image'));
+
+// function count(str) {
+//   const obj = {};
+//   str.replace(/\S/g, function(match) {
+//     obj[match] = obj[match] ? obj[match] + 1 : 1;
+//   });
+//   return obj;
+// }
+// console.log(count('hello world'));
