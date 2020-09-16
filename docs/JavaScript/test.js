@@ -344,55 +344,105 @@
 // newObj.b.c = 2;
 // console.log(newObj, obj);
 
-function deepCopy(obj, map = new WeakMap()) {
-  //是否为基本类型数据
-  if (isObject(obj)) {
-    //判断是否为循环引用
-    if (map.get(obj)) {
-      return map.get(obj);
-    }
-    let type = [RegExp, Date, Set, Map, WeakMap, WeakSet];
-    if (type.includes(obj.constructor)) {
-      return new obj.constructor(obj);
-    }
-    let allDes = Object.getOwnPropertyDescriptors(obj);
-    let cloneObj = Object.create(Object.getPrototypeOf(obj), allDes);
-    for (const prop of Reflect.ownKeys(obj)) {
-      cloneObj[prop] = isObject(obj[prop]) && typeof obj[prop] !== 'function' ? deepCopy(obj[prop], map) : obj[prop];
-    }
-    return cloneObj;
-  } else {
-    return obj;
-  }
-}
+// function deepCopy(obj, map = new WeakMap()) {
+//   //是否为基本类型数据
+//   if (isObject(obj)) {
+//     //判断是否为循环引用
+//     if (map.get(obj)) {
+//       return map.get(obj);
+//     }
+//     let type = [RegExp, Date, Set, Map, WeakMap, WeakSet];
+//     if (type.includes(obj.constructor)) {
+//       return new obj.constructor(obj);
+//     }
+//     let allDes = Object.getOwnPropertyDescriptors(obj);
+//     let cloneObj = Object.create(Object.getPrototypeOf(obj), allDes);
+//     for (const prop of Reflect.ownKeys(obj)) {
+//       cloneObj[prop] = isObject(obj[prop]) && typeof obj[prop] !== 'function' ? deepCopy(obj[prop], map) : obj[prop];
+//     }
+//     return cloneObj;
+//   } else {
+//     return obj;
+//   }
+// }
 
-function isObject(obj) {
-  return obj != null && (typeof obj === 'object' || typeof obj === 'function');
-}
+// function isObject(obj) {
+//   return obj != null && (typeof obj === 'object' || typeof obj === 'function');
+// }
 
-let obj = {
-  fun: function() {},
-  syb: Symbol('foo'),
-  a: undefined,
-  b: NaN,
-  c: Infinity,
-  reg: /^abc$/,
-  date: new Date(),
-  set: new Set([1, 2, 3, 4, 4]),
-  map: new Map([
-    ['name', '张三'],
-    ['title', 'Author'],
-  ]),
-  text: 'aaa',
-  value: {
-    a: {
-      b: 2,
-    },
-  },
-};
-let cloneObj = deepCopy(obj);
+// let obj = {
+//   fun: function() {},
+//   syb: Symbol('foo'),
+//   a: undefined,
+//   b: NaN,
+//   c: Infinity,
+//   reg: /^abc$/,
+//   date: new Date(),
+//   set: new Set([1, 2, 3, 4, 4]),
+//   map: new Map([
+//     ['name', '张三'],
+//     ['title', 'Author'],
+//   ]),
+//   text: 'aaa',
+//   value: {
+//     a: {
+//       b: 2,
+//     },
+//   },
+// };
+// let cloneObj = deepCopy(obj);
 
-obj.value.a.b = 3;
+// obj.value.a.b = 3;
 
-console.log('cloneObj', cloneObj);
-console.log('obj', obj);
+// console.log('cloneObj', cloneObj);
+// console.log('obj', obj);
+
+// function Bar(name) {
+//   this.name = name;
+// }
+
+// function _new(fn, ...params) {
+//   const obj = {};
+//   obj._proto_ = fn.prototype;
+//   const res = fn.call(obj, ...params);
+//   return typeof res === 'object' ? res : obj;
+// }
+
+// const a = _new(Bar, 'marin');
+// console.log(a.name);
+
+// const debounce = (fn, wait) => {
+//   let timer = null;
+//   return () => {
+//     if (timer) {
+//       clearTimeout(timer);
+//     }
+//     timer = setTimeout(() => {
+//       fn.apply(this);
+//     }, wait);
+//   };
+// };
+
+// const throttle = (fn, wait) => {
+//   let pre = 0;
+//   return () => {
+//     const now = new Date().getTime();
+//     if (now - pre >= wait) {
+//       fn.apply(this);
+//       pre = now;
+//     }
+//   };
+// };
+
+// var isPalindrome = function(s) {
+//   var s = s.toLowerCase();
+//   var regex = /[^a-zA-Z\d]/g;
+//   s = s.replace(regex, '');
+//   var len = s.length;
+//   for (let i = 0, j = len - 1; j >= 0 && i <= Math.ceil(len / 2); i++, j--) {
+//     if (s[i] != s[j]) return false;
+//   }
+//   return true;
+// };
+
+// console.log(isPalindrome('A man, a plan, a canal: Panama'));
