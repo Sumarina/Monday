@@ -446,3 +446,64 @@
 // };
 
 // console.log(isPalindrome('A man, a plan, a canal: Panama'));
+
+// class myPromise {
+//   constructor(fn) {
+//     this.resolvedFn = [];
+//     this.rejectedFn = [];
+//     const resolve = (value) => {
+//       while (this.resolvedFn.length) {
+//         const call = this.resolvedFn.shift();
+//         call(value);
+//       }
+//     };
+//     const reject = (err) => {
+//       while (this.rejectedFn.length) {
+//         const call = this.rejectedFn.shift();
+//         call(err);
+//       }
+//     };
+//     fn(resolve, reject);
+//   }
+
+//   then(resolveFn, rejectedFn) {
+//     this.resolvedFn.push(resolveFn);
+//   }
+// }
+
+// new myPromise((resolve, reject) => {
+//   setTimeout(() => {
+//     resolve('success');
+//   });
+// }).then((res) => {
+//   console.log(res);
+// });
+
+class MyPromise {
+  constructor(fn) {
+    this.status = 'pending';
+    this.rejectedFn = [];
+    this.resolvedFn = [];
+    const resolve = (value) => {
+      if (this.status != 'pending') return;
+      this.status = 'fulled';
+      while (this.resolvedFn.length) {
+        const call = this.resolvedFn.shift();
+        call(value);
+      }
+    };
+    const reject = (value) => {
+      if (this.status != 'pending') return;
+      this.status = 'fulled';
+      while (this.rejectedFn.length) {
+        const call = this.rejectedFn.shift();
+        call(value);
+      }
+    };
+    fn(resolve, reject);
+  }
+
+  then(resolveFn,rejectFn){
+      return new Promise()
+  }
+}
