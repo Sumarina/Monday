@@ -479,31 +479,108 @@
 //   console.log(res);
 // });
 
-class MyPromise {
-  constructor(fn) {
-    this.status = 'pending';
-    this.rejectedFn = [];
-    this.resolvedFn = [];
-    const resolve = (value) => {
-      if (this.status != 'pending') return;
-      this.status = 'fulled';
-      while (this.resolvedFn.length) {
-        const call = this.resolvedFn.shift();
-        call(value);
-      }
-    };
-    const reject = (value) => {
-      if (this.status != 'pending') return;
-      this.status = 'fulled';
-      while (this.rejectedFn.length) {
-        const call = this.rejectedFn.shift();
-        call(value);
-      }
-    };
-    fn(resolve, reject);
-  }
+// class MyPromise {
+//   constructor(fn) {
+//     this.status = 'pending';
+//     this.rejectedFn = [];
+//     this.resolvedFn = [];
+//     const resolve = (value) => {
+//       if (this.status != 'pending') return;
+//       this.status = 'fulled';
+//       while (this.resolvedFn.length) {
+//         const call = this.resolvedFn.shift();
+//         call(value);
+//       }
+//     };
+//     const reject = (value) => {
+//       if (this.status != 'pending') return;
+//       this.status = 'fulled';
+//       while (this.rejectedFn.length) {
+//         const call = this.rejectedFn.shift();
+//         call(value);
+//       }
+//     };
+//     fn(resolve, reject);
+//   }
 
-  then(resolveFn,rejectFn){
-      return new Promise()
-  }
+//   then(resolveFn,rejectFn){
+//       return new Promise()
+//   }
+// }
+
+// function polymerize(params) {
+//   const res = [];
+//   if (params.length > 0) {
+//     for (let i = 0; i < params.length; i++) {
+//       res[i] = [];
+//       res[i].push(params[i]);
+//       const allPoints = getPoints(params[i]);
+//       for (let p = 0; p < allPoints.length; p++) {
+//         const currentCell = allPoints[p];
+//         if (currentCell[0] >= 0 && currentCell[1] >= 0) {
+//           params.map((cell) => {
+//             if (cell[0] === currentCell[0] && cell[1] === currentCell[1]) {
+//               res[i].push(cell);
+//             }
+//           });
+//         }
+//       }
+//     }
+//   }
+//   return res;
+// }
+
+// function getPoints(points) {
+//   const x = points[0];
+//   const y = points[1];
+//   return [
+//     [x + 1, y],
+//     [x - 1, y],
+//     [x, y + 1],
+//     [x, y - 1],
+//   ];
+// }
+
+// const input = [
+//   [1, 1],
+//   [2, 1],
+//   [2, 4],
+//   [2, 5],
+//   [3, 2],
+//   [3, 4],
+//   [4, 4],
+//   [4, 5],
+//   [4, 6],
+//   [4, 7],
+//   [5, 3],
+//   [6, 3],
+//   [6, 4],
+//   [6, 5],
+// ];
+
+// const output = polymerize(input);
+
+function Parent() {
+  this.shares = [];
 }
+
+Parent.prototype.getAge = function() {
+  return this.age;
+};
+Parent.prototype.setAge = function(age) {
+  this.age = age;
+};
+
+function Child() {
+  Parent.call(this);
+}
+
+const me = new Child();
+// me.setAge(40);
+// console.log(me.getAge());
+me.shares.push('apple');
+
+const pig = new Child();
+pig.shares.push('banana');
+// console.log(pig.getAge());
+console.log(me.shares, pig.shares);

@@ -32,6 +32,7 @@ module.exports = {
         '0729',
         '0809',
         '0824',
+        '0923'
       ],
       '/css/': ['0409', '0726', '0728'],
       '/algorithm/': ['climbStairs', '0622', '0624', '0629', 'moveZeroes', 'mostWater', 'preorderTraversal', 'preorder', '0828'],
