@@ -1,6 +1,7 @@
 module.exports = {
   title: '今天星期一',
   description: '不积跬步无以至千里',
+  head: [['link', { rel: 'icon', href: '/logo.png' }]],
   themeConfig: {
     logo: '/logo.jpg',
     nav: [
@@ -32,11 +33,11 @@ module.exports = {
         '0729',
         '0809',
         '0824',
-        '0923'
+        '0923',
       ],
       '/css/': ['0409', '0726', '0728'],
       '/algorithm/': ['climbStairs', '0622', '0624', '0629', 'moveZeroes', 'mostWater', 'preorderTraversal', 'preorder', '0828'],
-      '/blog/': ['0519', '0610', 'node1', 'node2', 'node3', '0916'],
+      '/blog/': ['0519', '0610', 'node1', 'node2', 'node3', '0916', 'vue.md'],
       '/utils/': ['0901', '0831', '0902', 'rgbTo16', 'count', 'hump', '0908'],
     }, // 侧边栏配置
     sidebarDepth: 2, // 侧边栏显示2级
