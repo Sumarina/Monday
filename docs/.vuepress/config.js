@@ -35,9 +35,9 @@ module.exports = {
         '0824',
         '0923',
       ],
-      '/css/': ['0409', '0726', '0728'],
+      '/css/': ['0409', '0726', '0728', '移动端适配.md'],
       '/algorithm/': ['climbStairs', '0622', '0624', '0629', 'moveZeroes', 'mostWater', 'preorderTraversal', 'preorder', '0828'],
-      '/blog/': ['0519', '0610', 'node1', 'node2', 'node3', '0916', 'vue.md'],
+      '/blog/': ['0519', '0610', 'node1', 'node2', 'node3', '0916', 'vue.md', 'vue解析'],
       '/utils/': ['0901', '0831', '0902', 'rgbTo16', 'count', 'hump', '0908'],
     }, // 侧边栏配置
     sidebarDepth: 2, // 侧边栏显示2级
