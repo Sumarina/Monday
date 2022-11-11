@@ -584,3 +584,12 @@ const pig = new Child();
 pig.shares.push('banana');
 // console.log(pig.getAge());
 console.log(me.shares, pig.shares);
+
+const titleCase = (str) => {
+  const splitArr = str.toLowerCase().split(' ');
+  for (const [i, str] of splitArr.entries()) {
+    splitArr[i] = str[0].toUpperCase() + str.substring(1);
+  }
+  return splitArr.join(' ');
+};
+console.log(titleCase(" i'm go to the bed"));
