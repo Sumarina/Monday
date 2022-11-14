@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>nodejs 从入门到放弃（三） | 今天星期一</title>
+    <meta name="generator" content="VuePress 1.5.0">
+    <link rel="icon" href="/logo.png">
+    <meta name="description" content="不积跬步无以至千里">
+    <link rel="preload" href="/assets/css/0.styles.48bb18a6.css" as="style"><link rel="preload" href="/assets/js/app.db82df2a.js" as="script"><link rel="preload" href="/assets/js/2.19d91b71.js" as="script"><link rel="preload" href="/assets/js/56.a7d1d627.js" as="script"><link rel="prefetch" href="/assets/js/10.9c3425ea.js"><link rel="prefetch" href="/assets/js/11.3e199e06.js"><link rel="prefetch" href="/assets/js/12.29a33ffe.js"><link rel="prefetch" href="/assets/js/13.f2d1ab1c.js"><link rel="prefetch" href="/assets/js/14.18c00cc1.js"><link rel="prefetch" href="/assets/js/15.d1ff4747.js"><link rel="prefetch" href="/assets/js/16.eca88d43.js"><link rel="prefetch" href="/assets/js/17.ba139db4.js"><link rel="prefetch" href="/assets/js/18.c2daef91.js"><link rel="prefetch" href="/assets/js/19.785a5595.js"><link rel="prefetch" href="/assets/js/20.9663f362.js"><link rel="prefetch" href="/assets/js/21.8deeb702.js"><link rel="prefetch" href="/assets/js/22.60add185.js"><link rel="prefetch" href="/assets/js/23.aeff5dac.js"><link rel="prefetch" href="/assets/js/24.53921e05.js"><link rel="prefetch" href="/assets/js/25.109ae971.js"><link rel="prefetch" href="/assets/js/26.e75810d9.js"><link rel="prefetch" href="/assets/js/27.8edecbe4.js"><link rel="prefetch" href="/assets/js/28.eb59feb4.js"><link rel="prefetch" href="/assets/js/29.8cbbe449.js"><link rel="prefetch" href="/assets/js/3.27921659.js"><link rel="prefetch" href="/assets/js/30.762b8cf3.js"><link rel="prefetch" href="/assets/js/31.eadd436a.js"><link rel="prefetch" href="/assets/js/32.6224e51e.js"><link rel="prefetch" href="/assets/js/33.638f1cd3.js"><link rel="prefetch" href="/assets/js/34.05d8579d.js"><link rel="prefetch" href="/assets/js/35.010b89ea.js"><link rel="prefetch" href="/assets/js/36.2531d950.js"><link rel="prefetch" href="/assets/js/37.5150bebc.js"><link rel="prefetch" href="/assets/js/38.c0288100.js"><link rel="prefetch" href="/assets/js/39.03807c21.js"><link rel="prefetch" href="/assets/js/4.bef609f5.js"><link rel="prefetch" href="/assets/js/40.7b55f318.js"><link rel="prefetch" href="/assets/js/41.80e788c9.js"><link rel="prefetch" href="/assets/js/42.d76c3f40.js"><link rel="prefetch" href="/assets/js/43.9199ff1f.js"><link rel="prefetch" href="/assets/js/44.115dc96d.js"><link rel="prefetch" href="/assets/js/45.034cedda.js"><link rel="prefetch" href="/assets/js/46.f041d88e.js"><link rel="prefetch" href="/assets/js/47.8bb5cbf4.js"><link rel="prefetch" href="/assets/js/48.20e032d1.js"><link rel="prefetch" href="/assets/js/49.9e4a49e7.js"><link rel="prefetch" href="/assets/js/5.14eae1fe.js"><link rel="prefetch" href="/assets/js/50.90d8fef7.js"><link rel="prefetch" href="/assets/js/51.826d6679.js"><link rel="prefetch" href="/assets/js/52.468fea21.js"><link rel="prefetch" href="/assets/js/53.391121e2.js"><link rel="prefetch" href="/assets/js/54.2c8d4ec5.js"><link rel="prefetch" href="/assets/js/55.16978941.js"><link rel="prefetch" href="/assets/js/57.2024241b.js"><link rel="prefetch" href="/assets/js/58.3a9dc90c.js"><link rel="prefetch" href="/assets/js/59.88252525.js"><link rel="prefetch" href="/assets/js/6.75805a0e.js"><link rel="prefetch" href="/assets/js/60.5a6902d2.js"><link rel="prefetch" href="/assets/js/61.31e9abe2.js"><link rel="prefetch" href="/assets/js/62.36060295.js"><link rel="prefetch" href="/assets/js/63.8a76c8a3.js"><link rel="prefetch" href="/assets/js/64.9e372e3b.js"><link rel="prefetch" href="/assets/js/65.f838d064.js"><link rel="prefetch" href="/assets/js/66.15c8b353.js"><link rel="prefetch" href="/assets/js/67.ce55f5bb.js"><link rel="prefetch" href="/assets/js/68.e4ccbdcb.js"><link rel="prefetch" href="/assets/js/69.f0ac3c9f.js"><link rel="prefetch" href="/assets/js/7.73c22fbe.js"><link rel="prefetch" href="/assets/js/70.41382755.js"><link rel="prefetch" href="/assets/js/71.87d5a175.js"><link rel="prefetch" href="/assets/js/72.4691e794.js"><link rel="prefetch" href="/assets/js/73.2d81ce1f.js"><link rel="prefetch" href="/assets/js/74.0d1d9728.js"><link rel="prefetch" href="/assets/js/8.9bf8a1a5.js"><link rel="prefetch" href="/assets/js/9.2e009041.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.48bb18a6.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><img src="/logo.jpg" alt="今天星期一" class="logo"> <span class="site-name can-hide">今天星期一</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/" class="nav-link">
+  主页
+</a></div><div class="nav-item"><a href="/JavaScript/0410.html" class="nav-link">
+  JavaScript学习
+</a></div><div class="nav-item"><a href="/css/0409.html" class="nav-link">
+  css了解
+</a></div><div class="nav-item"><a href="/algorithm/climbStairs.html" class="nav-link">
+  算法练习
+</a></div><div class="nav-item"><a href="/blog/0519.html" class="nav-link">
+  博客
+</a></div><div class="nav-item"><a href="/utils/0901.html" class="nav-link">
+  手写utils
+</a></div><div class="nav-item"><a href="https://github.com/Sumarina/Monday" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Github
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/" class="nav-link">
+  主页
+</a></div><div class="nav-item"><a href="/JavaScript/0410.html" class="nav-link">
+  JavaScript学习
+</a></div><div class="nav-item"><a href="/css/0409.html" class="nav-link">
+  css了解
+</a></div><div class="nav-item"><a href="/algorithm/climbStairs.html" class="nav-link">
+  算法练习
+</a></div><div class="nav-item"><a href="/blog/0519.html" class="nav-link">
+  博客
+</a></div><div class="nav-item"><a href="/utils/0901.html" class="nav-link">
+  手写utils
+</a></div><div class="nav-item"><a href="https://github.com/Sumarina/Monday" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Github
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></div> <!----></nav>  <ul class="sidebar-links"><li><a href="/blog/0519.html" class="sidebar-link">网站性能优化</a></li><li><a href="/blog/0610.html" class="sidebar-link">设计一套账号体系 SDK 的流程</a></li><li><a href="/blog/node1.html" class="sidebar-link">nodejs 从入门到放弃（一）</a></li><li><a href="/blog/node2.html" class="sidebar-link">nodejs 从入门到放弃（二）</a></li><li><a href="/blog/node3.html" aria-current="page" class="active sidebar-link">nodejs 从入门到放弃（三）</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/blog/node3.html#定时器" class="sidebar-link">定时器</a></li><li class="sidebar-sub-header"><a href="/blog/node3.html#process-nexttick" class="sidebar-link">process.nextTick()</a></li><li class="sidebar-sub-header"><a href="/blog/node3.html#setimmediate" class="sidebar-link">setImmediate()</a></li><li class="sidebar-sub-header"><a href="/blog/node3.html#event-loop" class="sidebar-link">Event Loop</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/blog/node3.html#settimeout-and-setimmediate" class="sidebar-link">setTimeout and setImmediate</a></li><li class="sidebar-sub-header"><a href="/blog/node3.html#poll-阶段" class="sidebar-link">Poll 阶段</a></li><li class="sidebar-sub-header"><a href="/blog/node3.html#process-nexttick-2" class="sidebar-link">process.nextTick()</a></li></ul></li></ul></li><li><a href="/blog/0916.html" class="sidebar-link">如何设计 UI 组件库</a></li><li><a href="/blog/vue解析.html" class="sidebar-link">vue 内部运行机制</a></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="nodejs-从入门到放弃（三）"><a href="#nodejs-从入门到放弃（三）" class="header-anchor">#</a> nodejs 从入门到放弃（三）</h1> <p>如果读过了我的从入门到放弃的第二篇，就会对 Node 的异步 I/O 有所了解，接下来我要说的是 Node 中还存在一些与异步 I/O 无关的异步 API。</p> <hr> <h2 id="定时器"><a href="#定时器" class="header-anchor">#</a> 定时器</h2> <p><code>setInterval()</code>和<code>setTimeout()</code>与浏览器中的 API 是一致的，分别用于单次和多次定时执行任务。他们实现的原理与异步 I/O 毕竟类似，只是没有线程池的参与。
+调用<code>setInterval()</code>huo3<code>setTimeout()</code>创建的定时器会被插入到定时器观察者内部的红黑树中，每次 Tick 执行，就会从红黑树中取出定时器对象，检查是否超过定时时间，如果超过，则形成一个事件，回调函数立即执行。看图：
+<img src="/image/node/%E5%AE%9A%E6%97%B6%E5%99%A8.png" alt="定时器"></p> <h2 id="process-nexttick"><a href="#process-nexttick" class="header-anchor">#</a> process.nextTick()</h2> <p>由于事件循环的特点，定时器的精确度是不够的，比如某个任务耗时许久，下个任务原本已经到了执行事件却因为这个耗时任务而不能立即执行。再加上定时器是动用红黑树，创建定时器对象和迭代等操作，毕竟浪费性能。相对而言，<code>process.nextTick()</code>的操作相对较为轻量，每次调用<code>process.nextTick()</code>都是将回调函数放入队列，下一轮 tick 取出执行。</p> <h2 id="setimmediate"><a href="#setimmediate" class="header-anchor">#</a> setImmediate()</h2> <p><code>setImmediate()</code>也是将回调函数延迟执行，在 Nodev0.9.1 之前，<code>setImmediate()</code>还没实现呢，是通过<code>process.nextTick()</code>来完成。</p> <div class="language-js extra-class"><pre class="language-js"><code>process<span class="token punctuation">.</span><span class="token function">nextTick</span><span class="token punctuation">(</span><span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'延迟执行'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'正常输出'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment">//result</span>
+正常输出<span class="token punctuation">;</span>
+延迟执行<span class="token punctuation">;</span>
+</code></pre></div><div class="language-js extra-class"><pre class="language-js"><code><span class="token function">setImmediate</span><span class="token punctuation">(</span><span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'延迟执行'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'正常输出'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment">//result</span>
+正常输出<span class="token punctuation">;</span>
+延迟执行<span class="token punctuation">;</span>
+</code></pre></div><p>从以上两段代码看，结果一样，但实际它们还是有区别的。</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token function">setImmediate</span><span class="token punctuation">(</span><span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'setImmediate延迟执行'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+process<span class="token punctuation">.</span><span class="token function">nextTick</span><span class="token punctuation">(</span><span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'nextTick延迟执行'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'正常输出'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment">//result</span>
+正常输出<span class="token punctuation">;</span>
+nextTick延迟执行<span class="token punctuation">;</span>
+setImmediate延迟执行<span class="token punctuation">;</span>
+</code></pre></div><p>从结果可以看出<code>process.nextTick()</code>的优先级高于<code>setImmediate()</code>，是因为<em>事件循环对观察者的检查是有先后顺序的</em>（ps:继续往下看会详细写这块内容。）
+<code>process.nextTick()</code>的回调函数是存在一个数组，<code>setImmediate()</code>的结果是保存在链表中。
+在行为上，<code>process.nextTick()</code>在每轮循环会将数组中的回调函数全部执行完，<code>setImmediate()</code>在每轮循环中执行链表中的一个回调函数。用一段代码来证明：</p> <div class="language-js extra-class"><pre class="language-js"><code>process<span class="token punctuation">.</span><span class="token function">nextTick</span><span class="token punctuation">(</span><span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">&quot;next tick....1&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+process<span class="token punctuation">.</span><span class="token function">nextTick</span><span class="token punctuation">(</span><span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">&quot;next tick....2&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token function">setImmediate</span><span class="token punctuation">(</span><span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">&quot;immediate.....1&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    process<span class="token punctuation">.</span><span class="token function">nextTick</span><span class="token punctuation">(</span><span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+        console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">&quot;next tick....3&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+
+<span class="token function">setImmediate</span><span class="token punctuation">(</span><span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">&quot;immediate.....2&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+<span class="token comment">//result</span>
+next tick<span class="token operator">...</span><span class="token number">.1</span>
+next tick<span class="token operator">...</span><span class="token number">.2</span>
+immediate<span class="token operator">...</span><span class="token punctuation">.</span><span class="token number">.1</span>
+next tick<span class="token operator">...</span><span class="token number">.3</span>
+immediate<span class="token operator">...</span><span class="token punctuation">.</span><span class="token number">.2</span>
+</code></pre></div><p>从结果可以看出第一个<code>setImmediate()</code>的回调函数执行后，并没有立即执行第二个，而是进入下一轮循环，再次优先调用<code>process.nextTick()</code>。
+以上便是在 Node 中的几种不涉及异步 I/O 的异步 API。但这几种 API 具体在事件循环中又是一个什么执行顺序？继续往下看，please。
+先来一段分割线。。。</p> <hr> <h2 id="event-loop"><a href="#event-loop" class="header-anchor">#</a> Event Loop</h2> <p>当 Node 启动时，便会初始化 event loop，每一个 event loop 都包含六个循环阶段。看下图：
+![event loop循环阶段](/image/node/event loop 循环阶段.png)</p> <ul><li><em>timers 阶段</em>：在这个阶段执行定时器预定的 callback，比如<code>setTimeout(callback)</code>和<code>setInterval(callback)</code>。</li> <li><em>I/O callbacks 阶段</em>：除其他阶段以外的 callback。</li> <li><em>idle，prepare 阶段</em>：仅 node 内部使用。</li> <li><em>poll 阶段</em>：获取新的 I/O 事件，适当条件下阻塞。</li> <li><em>check 阶段</em>：执行<code>setImmediate()</code>设定的 callback。</li> <li><em>close callback 阶段</em>：close 的 callback。
+每一个阶段都有各自相对应的队列，当 event loop 运行到指定阶段，node 将从对应的队列取出 callback 执行，当队列中的 callback 执行完或者超过该阶段的上限，event loop 会转入下一个阶段。
+<strong><em>注意:<code>process.nextTick()</code>不在上面任何一个阶段。</em></strong></li></ul> <h3 id="settimeout-and-setimmediate"><a href="#settimeout-and-setimmediate" class="header-anchor">#</a> setTimeout and setImmediate</h3> <p><code>setTimeout</code>在 poll 阶段空闲，且设定事件到达后执行，在 timer 阶段执行。
+<code>setImmediate</code>在 poll 阶段完成后进入 check 执行。
+二者调用顺序取决 event loop 上下文，在异步 I/O callback 之外调用，执行顺序不确定。</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token function">setTimeout</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">&quot;setTimeout finished...&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token function">setImmediate</span><span class="token punctuation">(</span><span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">&quot;setImmediate finished...&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+<span class="token comment">//result</span>
+setTimeout finished<span class="token operator">...</span>
+setImmediate finished<span class="token operator">...</span>
+也可能出现
+setImmediate finished<span class="token operator">...</span>
+setTimeout finished<span class="token operator">...</span>
+</code></pre></div><p>在异步 I/O callback 中的调用顺序一定是先执行<code>setImmediate</code>后执行<code>setTimeout</code>：</p> <div class="language-js extra-class"><pre class="language-js"><code>fs<span class="token punctuation">.</span><span class="token function">readFile</span><span class="token punctuation">(</span><span class="token string">&quot;./main/read.txt&quot;</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+    <span class="token comment">//约5ms读取完毕</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">&quot;read file finished...&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">setTimeout</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+        console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">&quot;setTimeout finished...&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">setImmediate</span><span class="token punctuation">(</span><span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">&quot;setImmediate finished...&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+<span class="token comment">//result</span>
+read file finished<span class="token operator">...</span>
+setImmediate finished<span class="token operator">...</span>
+setTimeout finished<span class="token operator">...</span>
+</code></pre></div><p>是因为异步 I/O callback 是在 poll 阶段执行，执行完毕后进入到 check 阶段执行<code>setImmediate</code>，后进入到 timer 阶段执行<code>setTimeout</code>。</p> <h3 id="poll-阶段"><a href="#poll-阶段" class="header-anchor">#</a> Poll 阶段</h3> <p>poll 阶段是整个 event loop 比较重要的阶段。
+在 node.js 中，任何异步方法（除 timer，closer，setImmediate）完成时，都会将其 callback 加到 poll queue，并立即执行。
+当 event loop 进入 poll 阶段，分两种情况：</p> <ol><li><em>有 timer</em>：在有 timer 的情况下，如果 poll 的队列中没有任何待处理的事件，就会检查 timer 队列中有没有已经到了时间需要执行的事件，如果至少有一个，那么 event loop 将按照循环顺序进入 timer 阶段执行 timer 队列。</li> <li><em>没有 timer</em>：在没有 timer 的情况下，如果 poll 队列中有待处理的事件，则依次执行，直到队列为空，或者执行的 callback 到达系统上限。当 poll 队列为空，则会判断是否有<code>setImmediate()</code>设置的 callback，如果存在则结束 poll 阶段，马上进入 check 阶段执行 check 队列中的事件；如果没有<code>setImmediate()</code>设置的 callback，则 event loop 会阻塞在 poll 阶段，死等，直到有 callback 加入队列。
+看下面两段代码：</li></ol> <div class="language-js extra-class"><pre class="language-js"><code>fs<span class="token punctuation">.</span><span class="token function">readFile</span><span class="token punctuation">(</span><span class="token string">&quot;./main/read.txt&quot;</span><span class="token punctuation">,</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">=&gt;</span><span class="token punctuation">{</span>
+    <span class="token comment">//约5ms读取完毕</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">&quot;read file finished...&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+<span class="token function">setTimeout</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">&quot;setTimeout finished...&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token function">setImmediate</span><span class="token punctuation">(</span><span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">&quot;setImmediate finished...&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+<span class="token comment">//result</span>
+setTimeout finished<span class="token operator">...</span>
+setImmediate finished<span class="token operator">...</span>
+read file finished<span class="token operator">...</span>
+</code></pre></div><p>在执行到 poll 阶段的时候，已经有设置过的 timer，而且此时 poll 阶段的队列为空，而 timer 的队列中已经有待执行的 callback，则马上结束 poll 阶段按顺序执行进入到 timer 阶段，这里有<code>setTimeout(callback)</code>和<code>setImmediate(callback)</code>的回调顺序取决 event loop 上下文确定，也就是说它俩的执行先后顺序不确定。多执行几次说不定会出现先执行<code>setImmediate(callback)</code>的回调事件。</p> <div class="language-js extra-class"><pre class="language-js"><code>fs<span class="token punctuation">.</span><span class="token function">readFile</span><span class="token punctuation">(</span><span class="token string">&quot;./main/read.txt&quot;</span><span class="token punctuation">,</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">=&gt;</span><span class="token punctuation">{</span>
+    <span class="token comment">//约5ms读取完毕</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">&quot;read file finished...&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+<span class="token function">setTimeout</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">&quot;setTimeout finished...&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">,</span><span class="token number">6</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token function">setImmediate</span><span class="token punctuation">(</span><span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">&quot;setImmediate finished...&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+<span class="token comment">//result</span>
+setImmediate finished<span class="token operator">...</span>
+read file finished<span class="token operator">...</span>
+setTimeout finished<span class="token operator">...</span>
+</code></pre></div><p>在执行到 poll 阶段的时候，此时文件还未读取完毕，所以 poll 阶段的队列为空，虽然已经有设置过的 timer，时间未到，timer 队列中没有待处理的事件，此时有<code>setImmediate(callback)</code>设置的回调，则马上结束 poll 阶段进入 check 阶段执行 callback，该轮 event loop 结束后进入到下一次 tick，timer 队列依旧为空，进入到 poll 阶段，此时文件读取完毕，回调函数被当作事件进入到 poll 队列，执行该事件后，timer 中的 callback 已经到时间执行，则马上按顺序进入到 timer 阶段执行队列中的事件。</p> <h3 id="process-nexttick-2"><a href="#process-nexttick-2" class="header-anchor">#</a> process.nextTick()</h3> <p>之前提到<code>process.nextTick()</code>不属于任何一个阶段，那它什么时候执行？
+<code>process.nextTick()</code>是在各个阶段切换的中间执行，也就是说是从一个阶段切换到下一个阶段这个间隙执行。</p> <div class="language-js extra-class"><pre class="language-js"><code>fs<span class="token punctuation">.</span><span class="token function">readFile</span><span class="token punctuation">(</span><span class="token string">&quot;./main/read.txt&quot;</span><span class="token punctuation">,</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">=&gt;</span><span class="token punctuation">{</span>
+    <span class="token comment">//约5ms读取完毕</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">&quot;read file finished...&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+<span class="token function">setTimeout</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">&quot;setTimeout finished...&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token function">setImmediate</span><span class="token punctuation">(</span><span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">&quot;setImmediate finished...&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+
+process<span class="token punctuation">.</span><span class="token function">nextTick</span><span class="token punctuation">(</span><span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">&quot;next tick....1&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+process<span class="token punctuation">.</span><span class="token function">nextTick</span><span class="token punctuation">(</span><span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">&quot;next tick....2&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment">//result</span>
+next tick<span class="token operator">...</span><span class="token number">.1</span>
+next tick<span class="token operator">...</span><span class="token number">.2</span>
+setTimeout finished<span class="token operator">...</span>
+setImmediate finished<span class="token operator">...</span>
+read file finished<span class="token operator">...</span>
+</code></pre></div><p>上面代码中从 timer 阶段进入下个阶段间隙执行<code>process.nextTick()</code>，上面提到过<code>process.nextTick()</code>的回调函数是保存在数组中，一次性取出全部执行。
+<code>process.nextTick()</code>是早起 Node 版本无<code>setImmediate()</code>时的产物，node 作者推荐尽量使用<code>setImmediate()</code>。
+这是为啥子呢？
+试想，如果我们在一个递归中无限循环调用<code>process.nextTick()</code>，那是不是其他阶段的 callback 则没有机会执行了呢？
+而<code>setImmediate()</code>就不一样，只在 check 阶段，而且每次从队列中只取出一个事件执行，那这样大家都有机会执行了，能分到一杯羹。。ps:啊哈哈哈,不知道为啥此刻脑子想到某个港剧中几个大佬抢地盘的场景。
+以上所有便是 Node 中事件循环的整个过程。</p> <hr> <p>ps:参考朴灵的《深入浅出》和 https://cnodejs.org/topic/57d68794cb6f605d360105bf</p></div> <footer class="page-edit"><!----> <!----></footer> <div class="page-nav"><p class="inner"><span class="prev">
+      ←
+      <a href="/blog/node2.html" class="prev">
+        nodejs 从入门到放弃（二）
+      </a></span> <span class="next"><a href="/blog/0916.html">
+        如何设计 UI 组件库
+      </a>
+      →
+    </span></p></div> </main></div><div class="global-ui"></div></div>
+    <script src="/assets/js/app.db82df2a.js" defer></script><script src="/assets/js/2.19d91b71.js" defer></script><script src="/assets/js/56.a7d1d627.js" defer></script>
+  </body>
+</html>
